@@ -1,0 +1,31 @@
+{% extends "base.html" %} 
+
+{% block header_adicional %}
+	<head>
+		<title>Entrar</title>
+	</head>
+{% endblock %}
+
+{% block contenido %}
+	<main class="mdl-layout__content mdl-color--grey-100">
+		<div class="mdl-grid demo-content mdl-layout__tab-panel is-active">
+			<form autocomplete="on"> 
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
+					<input  class="mdl-textfield__input" type="text" id="sample3" rñequired="required"/>
+					<label class="mdl-textfield__label" for="sample3" >Correo electrónico o Nombre de usuario</label>
+				</div>
+				<br>
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
+					<input  class="mdl-textfield__input" id="sample3" required="required" type="password"/>
+					<label class="mdl-textfield__label" for="sample3">Contraseña</label>
+				</div>
+				<br>
+				<div class="signin button "> 
+					<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+					  Agregar
+					</button> 
+				</div>
+			</form>
+		</div>
+	</main>
+{% endblock %} 

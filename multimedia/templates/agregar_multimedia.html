@@ -1,0 +1,56 @@
+{% extends "base.html" %} 
+
+{% block header_adicional %}
+	<head>
+		<title>Agregar Multimedia</title>
+	</head>
+{% endblock %}
+
+{% block contenido %}
+	<main class="mdl-layout__content mdl-color--grey-100">
+		<div class="mdl-grid demo-content mdl-layout__tab-panel is-active">
+			<form autocomplete="on"> 
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					<input class="mdl-textfield__input" type="text" id="sample3" required="required" autofocus/>
+					<label class="mdl-textfield__label" for="sample3">Nombre de usuario</label>
+				</div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<br>	
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					<input class="mdl-textfield__input" type="text" id="sample3" required="required"/>  
+					<label class="mdl-textfield__label" for="sample3">Titulo de la multimedia</label>
+				</div>
+				<br>
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					<input class="mdl-textfield__input" type="text" id="sample3" required="required"/> 
+					<label class="mdl-textfield__label" for="sample3">Leyenda</label>
+				</div>
+				<br>
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
+					<input class="mdl-textfield__input" type="text" id="sample3" required="required"/> 
+					<label class="mdl-textfield__label" for="sample3">Tipo</label>
+				</div>
+				<br>
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
+					<input class="mdl-textfield__input" type="text" id="sample3" required="required"/>
+					<label class="mdl-textfield__label" for="sample3">Texto alternativo</label>
+				</div>
+				<br>
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					<input class="mdl-textfield__input" id="sample3" required="required" type="file" >
+					<label class="mdl-textfield__label" for="sample3">Archivo</label>
+				</div>
+				<br>
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
+					<input class="mdl-textfield__input" id="sample3" required="required" type="date"/>
+					<label class="mdl-textfield__label" for="sample3">Fecha Publicación</label> 
+				</div>
+				<br>
+				<div class="signin button "> 
+					<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+					  Agregar
+					</button> 
+				</div>
+			</form>
+		</div>
+	</main>
+{% endblock %}

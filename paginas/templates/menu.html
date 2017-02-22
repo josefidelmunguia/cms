@@ -1,0 +1,43 @@
+{% load static staticfiles %}
+	      	<header class="mdl-layout__header mdl-layout__header--scroll mdl-layout__header--transparent">
+	        	<div class="mdl-layout__header-row">
+			        <figure>
+						<img src="{% static 'img/logo.png' %}">
+					</figure>
+	          		<span class="mdl-layout-title">Campo Alegre Alimentos</span>
+		   
+		        	<div class="mdl-layout-spacer"></div>
+			          <nav class="mdl-navigation">
+			          	<a class="mdl-navigation__link mdl-layout--large-screen-only" href="">Inicio</a>
+			          	<a class="mdl-navigation__link mdl-layout--large-screen-only" href="">Clientes</a>
+			            <a class="mdl-navigation__link mdl-layout--large-screen-only" href="">Empleados</a>
+			            <a class="mdl-navigation__link mdl-layout--large-screen-only" href="">Productos</a>
+			            <a class="mdl-navigation__link mdl-layout--large-screen-only" href="">Acerca de</a>
+			          </nav>
+	          	</div>
+	      	</header>
+
+	      	<div class="mdl-layout__drawer">
+	        	<span class="mdl-layout-title">Menú</span>
+		        <nav class="mdl-navigation" >
+		          	<a class="mdl-navigation__link" href="">Inicio</a>
+		          	<a class="mdl-navigation__link" href="">Clientes</a>
+	    		 	<a class="mdl-navigation__link" href="">Empleados</a>
+	        	  	<a class="mdl-navigation__link" href="">Productos</a>
+			        <a class="mdl-navigation__link" href="">Acerca de</a>
+		        </nav>
+	      	</div>
+	      	
+	      	<div >
+				<button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon mdl-layout--small-screen-only">
+				  <i class="material-icons">more_vert</i>
+				</button>
+				<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+				  <li class="mdl-menu__item">Inicio</li>
+				  <li class="mdl-menu__item">Clientes</li>
+				  <li class="mdl-menu__item">Empleados</li>
+				  <li class="mdl-menu__item">Productos</li>
+				  <li class="mdl-menu__item">Acerca de</li>
+				</ul>
+	      	</div>
+		
