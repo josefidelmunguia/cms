@@ -58,7 +58,11 @@ MIDDLEWARE = [
 ]
 
 
-
+TEMPLATE_LOADERS = {
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
+                #'django.template.loaders.eggs.Loader',
+            }
 ROOT_URLCONF = 'cms.urls'
 
 TEMPLATES = [
@@ -73,11 +77,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
-            'template_loaders': [
-                'django.template.loaders.filesystem.Loader',
-                'django.template.loaders.app_directories.Loader',
-                #'django.template.loaders.eggs.Loader',
-            ],
+            
         },
     },
 ]
