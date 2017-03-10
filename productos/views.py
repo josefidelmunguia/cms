@@ -1,7 +1,7 @@
 #encoding:utf-8
 from django.shortcuts import get_object_or_404, render,redirect
 from django.contrib.auth.decorators import login_required
-from .models import Categoria_Producto,Etiqueta_Producto
+from .models import Categoria_Producto,Etiqueta_Producto,Producto
 
 @login_required(login_url='/usuarios/login/')
 def agregar_producto(request):
@@ -24,4 +24,12 @@ def agregar_categoria(request):
     page_title = "Agregar Categoria"
     user = request.user
     template ="agregar_cat_producto.html" 
+    return render(request,template, locals())
+
+@login_required(login_url='/usuarios/login/')
+def menu_productos(request):
+    page_title = "Menú Productos"
+    user = request.user
+    producto = Producto.objects.all()
+    template ="menu_productos.html" 
     return render(request,template, locals())

@@ -1,56 +1,61 @@
 {% extends "base.html" %} 
 
-{% block header_adicional %}
-	<head>
-		<title>Agregar Slider</title>
-	</head>
-{% endblock %}
+{% load static staticfiles %}
 
 {% block contenido %}
 	<main class="mdl-layout__content mdl-color--grey-100">
-		<div class="mdl-grid demo-content mdl-layout__tab-panel is-active">
-			<form autocomplete="on"> 
-				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-					<input class="mdl-textfield__input" type="text" id="sample3" required="required" autofocus/>
-					<label class="mdl-textfield__label" for="sample3">Nombre de usuario</label>
-				</div>
-				<br>	
-				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
-					<input class="mdl-textfield__input" type="text" id="sample3" required="required"/> 
-					<label class="mdl-textfield__label" for="sample3" >Nombre del slider</label>
-				</div>
-				<br>
-				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
-					<label class="mdl-textfield__label" for="sample3" >Categoria</label>
-					<select class="mdl-textfield__input" required="required" >
-						<option value="" selected="selected"></option>
-					{% for c in categoria %}
-						<option value="{{c.id}}">{{c.nombre}}</option>
-					{% endfor %}
-					</select>
-				</div>
-				<br>
-				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-					<input class="mdl-textfield__input" id="sample3" required="required" type="file" >
-					<label class="mdl-textfield__label" for="sample3">Imagen</label>
-				</div>
-				<br>
-				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
-					<input class="mdl-textfield__input" id="sample3" required="required" type="date"/>
-					<label class="mdl-textfield__label" for="sample3" >Fecha Inicio</label>
-				</div>
-				<br>
-				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
-					<input class="mdl-textfield__input" id="sample3" required="required" type="date"/>
-					<label class="mdl-textfield__label" for="sample3" >Fecha Fin</label>
-				</div>
-				<br>
-				<div class="signin button "> 
-					<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
-					  Agregar
-					</button> 
-				</div>
-			</form>
+		<div class="mdl-grid demo-content">
+			<div class="mdl-layout-spacer"></div>
+			<div class="mdl-cell mdl-cell--3-col">
+				<form autocomplete="on"> 
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<input class="mdl-textfield__input" type="text" id="sample3" required="required" autofocus/>
+						<label class="mdl-textfield__label" for="sample3">Nombre de usuario</label>
+					</div>
+					<br>	
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
+						<input class="mdl-textfield__input" type="text" id="sample3" required="required"/> 
+						<label class="mdl-textfield__label" for="sample3" >Nombre del slider</label>
+					</div>
+					<br>
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
+						<label class="mdl-textfield__label" for="sample3" >Categoria</label>
+						<select class="mdl-textfield__input" required="required" >
+							<option value="" selected="selected"></option>
+						{% for c in categoria %}
+							<option value="{{c.id}}">{{c.nombre}}</option>
+						{% endfor %}
+						</select>
+					</div>
+					<br>
+					<div>	
+						<input type="file" accept="image/*" id="uploader" required="required">
+						<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+					    <script src="{% static 'js/file-uploader.js' %}"></script>
+					    <script type="text/javascript">
+					        $('#uploader').fileUploader({activeColor: 'blue', baseColor: '#ccc'});
+					    </script>
+					    <link rel="stylesheet" href="{% static 'css/file-uploader.css' %}">
+					</div>
+					<br>
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
+						<input class="mdl-textfield__input" id="sample3" required="required" type="date"/>
+						<label class="mdl-textfield__label" for="sample3" >Fecha Inicio</label>
+					</div>
+					<br>
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
+						<input class="mdl-textfield__input" id="sample3" required="required" type="date" min="2017-02-09"/>
+						<label class="mdl-textfield__label" for="sample3" >Fecha Fin</label>
+					</div>
+					<br>
+					<div class="signin button "> 
+						<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+						  Agregar
+						</button> 
+					</div>
+				</form>
+			</div>
+			<div class="mdl-layout-spacer"></div>
 		</div>
 	</main>
 {% endblock %}

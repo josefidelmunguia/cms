@@ -1,24 +1,24 @@
 {% extends "base.html" %} 
 
-{% block header_adicional %}
-	<title>Agregar Etiqueta</title>
-{% endblock %}
-
 {% block contenido %}
 	<main class="mdl-layout__content mdl-color--grey-100">
-		<div class="mdl-grid demo-content mdl-layout__tab-panel is-active">
-			<form autocomplete="on">
-				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-					<input class="mdl-textfield__input" type="text" id="sample3" required="required" autofocus/>
-					<label class="mdl-textfield__label" for="sample3">Nombre Etiqueta</label>
-				</div>
-				<br>
-				<div class="signin button "> 
-					<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
-					  Agregar
-					</button> 
-				</div>	
-			</form>
+		<div class="mdl-grid demo-content">
+			<div class="mdl-layout-spacer"></div>
+			<div class="mdl-cell mdl-cell--3-col">
+				<form autocomplete="on">
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<input class="mdl-textfield__input" type="text" id="sample3" required="required" autofocus/>
+						<label class="mdl-textfield__label" for="sample3">Nombre Etiqueta</label>
+					</div>
+					<br>
+					<div class="signin button "> 
+						<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+						  Agregar
+						</button> 
+					</div>	
+				</form>
+			</div>
+			<div class="mdl-layout-spacer"></div>
 		</div>
 	</main>
 {% endblock %}

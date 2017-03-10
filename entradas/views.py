@@ -1,7 +1,7 @@
 #encoding:utf-8
 from django.shortcuts import get_object_or_404, render,redirect
 from django.contrib.auth.decorators import login_required
-from .models import Categoria_Entrada,Comentario_Entrada,Etiqueta_Entrada
+from .models import Categoria_Entrada,Comentario_Entrada,Etiqueta_Entrada,Entrada
 
 @login_required(login_url='/usuarios/login/')
 def agregar_categoria(request):
@@ -27,8 +27,16 @@ def agregar_comentario(request):
 def agregar_entrada(request):
     page_title = "Agregar Entrada"
     user = request.user
-    categoria_entrada = Categoria_Entrada.objects.all()
     etiqueta_entrada = Etiqueta_Entrada.objects.all()
+    categoria_entrada = Categoria_Entrada.objects.all()
     comentario_entrada = Comentario_Entrada.objects.all()
     template ="agregar_entrada.html" 
+    return render(request,template, locals())
+
+@login_required(login_url='/usuarios/login/')
+def menu_entradas(request):
+    page_title = "Menú Entradas"
+    user = request.user
+    entrada = Entrada.objects.all()
+    template ="menu_entradas.html" 
     return render(request,template, locals())

@@ -7,4 +7,4 @@ class CategoriaAdmin(admin.ModelAdmin):
 
 @admin.register(Slider)
 class SliderAdmin(admin.ModelAdmin):
-	list_display = ('id','usuario','nombre','categoria','imagen','fecha_creacion','fecha_inicio','fecha_fin')
+	list_display = ('id','usuario','nombre','categoria','fecha_creacion','fecha_inicio','fecha_fin')

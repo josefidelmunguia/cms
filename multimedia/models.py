@@ -7,7 +7,7 @@ class Multimedia(models.Model):
 	titulo = models.CharField(max_length=30)
 	tipo = models.CharField(max_length=10)
 	leyenda = models.CharField(max_length=50)
-	texto_alternatico = models.CharField(max_length=40)
+	texto_alternativo = models.CharField(max_length=40)
 	archivo = models.FileField(upload_to='arch/multimedia',)
 	fecha_creacion = models.DateField(auto_now_add=True)
 	fecha_publicacion = models.DateField()

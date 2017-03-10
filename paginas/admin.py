@@ -3,4 +3,6 @@ from paginas.models import Pagina
 
 @admin.register(Pagina)
 class PaginaAdmin(admin.ModelAdmin):
-	list_display = ('id','usuario','titulo','contenido','fecha_creacion','fecha_publicacion','slugs')
+	list_display = ('id','usuario','titulo','contenido','slugs','fecha_creacion','fecha_publicacion')
+
+	prepopulated_fields = {'slugs' : ('titulo',)} 

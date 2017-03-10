@@ -36,15 +36,18 @@
 			  color: white;
 			  margin-top: -80px;
 			}
+			.mdl-demo {
+			display: flex;
+		  	align-items: center;
+		  	justify-content: center;
+		}
 
     	</style>
 		
-		
-
 		{% block css %} {% endblock %}
 	</head>
 
-	<body> 	
+	<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base"> 	
 		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 			{% include "menu.html" %}
 			{% block contenido %} {% endblock %}

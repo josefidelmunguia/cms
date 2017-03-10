@@ -12,10 +12,10 @@ class Slider(models.Model):
 	usuario = models.ForeignKey(Usuario)
 	nombre = models.CharField(max_length=40)
 	categoria = models.ForeignKey(Categoria)
-	imagen =models.ImageField(upload_to='img/sliders',)
 	fecha_creacion = models.DateField(auto_now_add=True)
 	fecha_inicio = models.DateField()
 	fecha_fin = models.DateField()
+	imagen =models.ImageField(upload_to='img/sliders',)
 
 	def __unicode__(self):
 		return unicode(self.nombre)

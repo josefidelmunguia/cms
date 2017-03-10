@@ -1,0 +1,48 @@
+{% extends "base.html" %} 
+
+{% load static staticfiles %}
+
+{% block contenido %}
+	<main class="mdl-layout__content mdl-color--grey-100">
+	<div class="mdl-grid demo-content">
+		<div class="mdl-layout-spacer"></div>
+		<div class="mdl-cell mdl-cell--8-col">
+			<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+				<thead>
+			    	<tr>
+				    	<th class="mdl-data-table__cell--non-numeric">Nombre</th>
+				    	<th>Categoria</th>
+					    <th>Fecha Inicio</th>
+					    <th>Fecha Fin</th>
+					    <th>Imagen</th>
+			    	</tr>
+			  	</thead>
+			  	<tbody>				    
+				    {% for s in slider %}
+				    <tr>
+						<td class="mdl-data-table__cell--non-numeric">{{s.nombre}}</td>
+						<td class="mdl-data-table__cell--non-numeric">{{s.categoria}}</td>
+						<td class="mdl-data-table__cell--non-numeric">{{s.fecha_inicio|date:"d-m-Y"}}</td>
+						<td class="mdl-data-table__cell--non-numeric">{{s.fecha_fin|date:"d-m-Y"}}</td>
+						<td class="mdl-data-table__cell--non-numeric"><img src="{{ s.imagen.url }}" alt="{{ s.nombre }}" width="120" /></td>
+					</tr>
+					{% endfor %}	   
+			  	</tbody>
+			</table>
+		</div>	
+		<div class="mdl-layout-spacer"></div>
+		</div>
+	</main>
+	<footer class="mdl-color--grey-100 mdl-layout--small-screen-only">
+		<a href="/sliders/agregar_slider" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent mdl-bot" id="add">
+            <i class="material-icons" role="presentation">add</i>
+            <span class="visuallyhidden">Add</span>
+      	</a>
+	</footer>
+	<style type="text/css">
+		.mdl-bot{
+			margin-left: 85%;
+			margin-bottom:10px;
+		}
+	</style>
+{% endblock %}

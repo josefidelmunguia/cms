@@ -18,14 +18,15 @@ class Etiqueta_Producto(models.Model):
 class Producto(models.Model):
 	usuario = models.ForeignKey(Usuario)
 	nombre = models.CharField(max_length=40)
+	categoria = models.ForeignKey(Categoria_Producto)
+	etiqueta = models.ForeignKey(Etiqueta_Producto)
 	sku = models.CharField(max_length=20,unique=True)
 	stock = models.CharField(max_length=20)
 	precio = models.DecimalField(max_digits=7,decimal_places=2,blank=True,null=True)
-	categoria = models.ForeignKey(Categoria_Producto)
-	etiqueta = models.ForeignKey(Etiqueta_Producto)
-	imagen = models.ImageField(upload_to='img/productos',)
+	slugs = models.SlugField(max_length=50,allow_unicode=True,blank=True,null=True)
 	fecha_creacion = models.DateField(auto_now_add=True)
 	fecha_publicacion = models.DateField()
+	imagen = models.ImageField(upload_to='img/productos',)
 
 	def __unicode__(self):
 		return unicode(self.nombre)

@@ -1,7 +1,5 @@
 from django.contrib import admin
-from productos.models import Categoria_Producto
-from productos.models import Etiqueta_Producto
-from productos.models import Producto
+from productos.models import Categoria_Producto,Etiqueta_Producto,Producto
 
 @admin.register(Etiqueta_Producto)
 class Etiqueta_ProductoAdmin(admin.ModelAdmin):
@@ -13,4 +11,6 @@ class Categor_ProductoiaAdmin(admin.ModelAdmin):
 
 @admin.register(Producto)
 class ProductoAdmin(admin.ModelAdmin):
-	list_display = ('id','usuario','nombre','sku','stock','precio','categoria','etiqueta','fecha_creacion','fecha_publicacion')
+	list_display = ('id','usuario','nombre','categoria','etiqueta','sku','stock','precio','slugs','fecha_creacion','fecha_publicacion')
+
+	prepopulated_fields = {'slugs' : ('nombre',)} 

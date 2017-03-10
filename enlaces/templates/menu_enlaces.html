@@ -1,0 +1,49 @@
+{% extends "base.html" %} 
+
+{% load static staticfiles %}
+	
+{% block contenido %}
+	<main class="mdl-layout__content mdl-color--grey-100">
+	<div class="mdl-grid demo-content">
+		<div class="mdl-layout-spacer"></div>
+		<div class="mdl-cell mdl-cell--6-col">
+			<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+				<thead>
+			    	<tr>
+				    	<th class="mdl-data-table__cell--non-numeric">Titulo</th>
+					    <th>Enlace Personalizado</th>
+					    <th>Pagina</th>
+					    <th>Categoria Producto</th>
+					    <th>Categoria Entrada</th>
+					    <th>Menú</th>
+			    	</tr>
+			  	</thead>
+			  	<tbody>				    
+				    {% for e in enlace %}
+				    <tr>
+						<td class="mdl-data-table__cell--non-numeric">{{e.titulo}}</td>
+						<td class="mdl-data-table__cell--non-numeric">{{e.enlace_personalizado}}</td>
+						<td class="mdl-data-table__cell--non-numeric">{{e.categoria_producto}}</td>
+						<td class="mdl-data-table__cell--non-numeric">{{e.categoria_entrada}}</td>
+						<td class="mdl-data-table__cell--non-numeric">{{e.menu}}</td>
+					</tr>
+					{% endfor %}	   
+			  	</tbody>
+			</table>
+		</div>	
+		<div class="mdl-layout-spacer"></div>
+		</div>
+	</main>
+	<footer class="mdl-color--grey-100 mdl-layout--small-screen-only">
+		<a href="/enlaces/agregar_enlace" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent mdl-bot" id="add">
+            <i class="material-icons" role="presentation">add</i>
+            <span class="visuallyhidden">Add</span>
+      	</a>
+	</footer>
+	<style type="text/css">
+		.mdl-bot{
+			margin-left: 85%;
+			margin-bottom:10px;
+		}
+	</style>
+{% endblock %}

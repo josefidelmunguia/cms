@@ -7,4 +7,4 @@ class MenuAdmin(admin.ModelAdmin):
 
 @admin.register(Enlace)
 class EnlanceAdmin(admin.ModelAdmin):
-	list_display = ('id','titulo','enlace_personalizado','pagina','categoria_producto','categoria_producto','menu')
+	list_display = ('id','titulo','enlace_personalizado','categoria_producto','categoria_entrada','menu','pagina')
