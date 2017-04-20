@@ -1,0 +1,33 @@
+{% extends "base.html" %} 
+
+{% load static staticfiles %}
+
+{% block contenido %}
+	<main class="mdl-layout__content mdl-color--grey-100">
+	  	<div class="mdl-grid demo-content mdl-layout__tab-panel is-active" id="datos">
+
+	  		<div class="mdl-grid">
+	  			<div class="demo-cards mdl-cell mdl-cell--4-col mdl-grid mdl-grid--no-spacing">	
+
+			  		<div class="demo-card-image mdl-card mdl-shadow--2dp ">
+			  			<img src="{{ empleado.imagen.url }}" class="mdl-cell--12-col" />
+						<div class="mdl-card__title mdl-card--expand"></div>
+						<div class="mdl-card__actions">
+							<span class="demo-card-image__filename">{{usuario.user}}</span>
+						</div>
+					</div>
+				</div>	  		
+		    	<div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--8-col mdl-grid ">
+
+		    		<h2 class="mdl-cell mdl-cell--12-col">Datos Personales</h2>
+		    		<ul>
+		    			<li><strong>Nombre: </strong>{{usuario.usuario}}</li>
+		    			<li><strong>Perfil: </strong>{{usuario.perfil}}</li>
+		    			<li><strong>Entradas :</strong> {{usuario.entradas_usuario}}</li>
+		    		</ul>
+		    	</div>
+		    </div>
+		</div>
+	</main>
+
+{% endblock %}

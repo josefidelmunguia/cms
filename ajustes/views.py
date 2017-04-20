@@ -13,7 +13,7 @@ def menu_ajustes(request):
 
 @login_required(login_url='/usuarios/login/')
 def ajustes(request):
-    page_title = "Ajustes"
+    page_title = "Agregar Ajustes"
     user = request.user
     template ="ajustes.html" 
     return render(request,template, locals())

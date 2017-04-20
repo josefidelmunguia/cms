@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Pagina
 
 def index(request):
-    page_title = "Bienvenido"
+    page_title = "Bienvenidos !!!"
     user = request.user
     template ="index.html" 
     return render(request,template, locals())

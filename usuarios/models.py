@@ -1,6 +1,8 @@
 from __future__ import unicode_literals
 from django.db import models
 from django.contrib.auth.models import User
+#from imagekit.models import ImageSpecField
+#from imagekit.processors import ResizeToFill
 
 class Perfil(models.Model):
 	nombre = models.CharField(max_length=35)
@@ -15,3 +17,7 @@ class Usuario(models.Model):
 
 	def __unicode__(self):
 		return unicode(self.usuario)
+
+	#@models.permalink
+	#def get_absolute_url(self):
+	#	return('usuario', (), { 'usuario_id': self.id })
