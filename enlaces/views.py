@@ -5,7 +5,7 @@ from .models import Menu,Pagina,Categoria_Producto,Categoria_Entrada,Enlace
 
 @login_required(login_url='/usuarios/login/')
 def menu_enlaces(request):
-    page_title = "Menú Enlace"
+    page_title = "ENLACES"
     user = request.user
     enlace = Enlace.objects.all()
     template ="menu_enlaces.html" 
@@ -13,14 +13,14 @@ def menu_enlaces(request):
 
 @login_required(login_url='/usuarios/login/')
 def agregar_menu(request):
-    page_title = "Agregar Menu"
+    page_title = "AGREGAR MENÚ"
     user = request.user
     template ="agregar_menu.html" 
     return render(request,template, locals())
 
 @login_required(login_url='/usuarios/login/')
 def agregar_enlace(request):
-    page_title = "Agregar Enlace"
+    page_title = "AGREGAR ENLACE"
     user = request.user
     pagina = Pagina.objects.all()
     categoria_producto = Categoria_Producto.objects.all()

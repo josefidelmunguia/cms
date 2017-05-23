@@ -1,47 +1,67 @@
 {% extends "base.html" %} 
-
 {% load static staticfiles %}
-
+{% block header%}
+	<div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+      <a href="#activos" class="mdl-layout__tab is-active">Todos</a>
+      <a href="#clientes" class="mdl-layout__tab">Clientes</a>
+      <a href="/usuarios/registrar" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="add">
+        <i class="material-icons" role="presentation">add</i>
+        <span class="visuallyhidden">Add</span>
+      </a>
+    </div>
+{% endblock %}
 {% block contenido %}
-  <header class="mdl-layout--large-screen-only mdl-color--grey-100 ">
-    <a href="/usuarios/registrar" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent mdl-boton " id="add">
-      <i class="material-icons" role="presentation">add</i>
-      <span class="visuallyhidden">Add</span>
-    </a>
-  </header>
-      
-  <style type="text/css">
-  .mdl-boton{
-    margin-left: 90%;
-    margin-top:-1px; 
-  }
-  </style>
 
 	<main class="mdl-layout__content mdl-color--grey-100">
-	<div class="mdl-grid demo-content">
-		<div class="mdl-layout-spacer"></div>
-		<div class="mdl-cell mdl-cell--3-col">
-			<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
-				<thead>
-			    	<tr>
-				    	<th class="mdl-data-table__cell--non-numeric">Usuario</th>
-				    	<th>Perfil</th>
-					    <th>Entradas</th>
-			    	</tr>
-			  	</thead>
-			  	<tbody>				    
-				    {% for u in usuario %}
-				    <tr>
-				    	<td class="mdl-data-table__cell--non-numeric"><a href="{{ u.get_absolute_url }}">{{u.usuario}}</a></td>  		
-						<td class="mdl-data-table__cell--non-numeric">{{u.usuario}}</td>
-						<td class="mdl-data-table__cell--non-numeric">{{u.perfil}}</td>
-						<td class="mdl-data-table__cell--non-numeric">{{u.entradas_usuario}}</td>
-					</tr>
-					{% endfor %}	   
-			  	</tbody>
-			</table>
-		</div>	
-		<div class="mdl-layout-spacer"></div>
+		<div class="mdl-layout__tab-panel is-active" id="activos">
+			<div class="mdl-grid demo-content">
+				<div class="mdl-cell mdl-cell--12-col">
+					<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-full-width">
+						<thead>
+					    	<tr>
+						    	<th class="mdl-data-table__cell--non-numeric">Usuario</th>
+						    	<th>Perfil</th>
+							    <th>Entradas</th>
+					    	</tr>
+					  	</thead>
+					  	<tbody>				    
+						    {% for u in usuarios %}
+						    <tr>
+						    	<td class="mdl-data-table__cell--non-numeric"><a href="{{ u.get_absolute_url }}">{{u.usuario}}</a></td>  		
+								<td>{{u.perfil}}</td>
+								<td>{{u.entradas_usuario}}</td>
+							</tr>
+							{% endfor %}	   
+					  	</tbody>
+					</table>
+				</div>	
+			</div>
+		</div>
+		<div class="mdl-layout__tab-panel is-active" id="clientes">
+			<div class="mdl-grid demo-content">
+				<div class="mdl-cell mdl-cell--12-col">
+					<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-full-width">
+						<thead>
+					    	<tr>
+						    	<th class="mdl-data-table__cell--non-numeric">Usuario</th>
+						    	<th>Perfil</th>
+							    <th>Entradas</th>
+					    	</tr>
+					  	</thead>
+					  	<tbody>				    
+						    {% for u in usuarios %}
+						    {% if u.perfil == 'Cliente' %}
+						    <tr>
+						    	<td class="mdl-data-table__cell--non-numeric"><a href="{{ u.get_absolute_url }}"></a></td>  		
+								<td>{{u.perfil}}</td>
+								<td>{{u.entradas_usuario}}</td>
+							</tr>
+							{% endif %}
+							{% endfor %}	   
+					  	</tbody>
+					</table>
+				</div>	
+			</div>
 		</div>
 	</main>
 	<footer class="mdl-color--grey-100 mdl-layout--small-screen-only">
@@ -50,10 +70,4 @@
             <span class="visuallyhidden">Add</span>
       	</a>
 	</footer>
-	<style type="text/css">
-		.mdl-bot{
-			margin-left: 85%;
-			margin-bottom:10px;
-		}
-	</style>
 {% endblock %}

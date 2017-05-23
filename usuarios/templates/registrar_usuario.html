@@ -5,35 +5,51 @@
 		<div class="mdl-grid demo-content">
 			<div class="mdl-layout-spacer"></div>
 			<div class="mdl-cell mdl-cell--3-col">
-				<form autocomplete="on"> 
+				<form action="" name="f1" method="post" onSubmit="return validarPasswd()" role="form" class="mdl-grid form-add">{% csrf_token %}
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
-						<input class="mdl-textfield__input" id="sample3" required="required" type="text" />
+						<input class="mdl-textfield__input" name="username" id="id_username" maxlength="150" required="required" type="text" />
 						<label class="mdl-textfield__label" for="sample3">Nombre de usuario</label>
 					</div>
 					<br>
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" id="sample3" required="required" type="email" />
+						<input class="mdl-textfield__input" name="email" id="id_email" required="required" type="email" />
 						<label class="mdl-textfield__label" for="sample3">Correo electrónico</label>
 					</div>
 					<br>
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" id="sample3" required="required" type="password" /> 
+						<input class="mdl-textfield__input" name="password" id="id_password1" required="required" type="password" />
 						<label class="mdl-textfield__label" for="sample3">Contraseña</label>
 					</div>
 					<br>
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
-						<input class="mdl-textfield__input" id="sample3" required="required" type="password"/>
+						<input class="mdl-textfield__input" name="password2" id="id_password2" required="required" type="password"/>
 						<label class="mdl-textfield__label" for="sample3">Confirma tu contraseña </label>
 					</div>
 					<br>
 					<div class="signin button "> 
-						<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+						<a href="{% url 'menu-usuarios' %}" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+						  Cancelar
+						</a>
+						<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" onClick="comprobarClave()">
 						  Agregar
 						</button> 
+						
 					</div>
 				</form>
 			</div>
 			<div class="mdl-layout-spacer"></div>
 		</div>
 	</main>
+	<script type="text/javascript">
+	function validarPasswd(){ 
+	   	password = document.f1.password.value 
+	   	password2 = document.f1.password2.value 
+
+	   	if (password == password2) 
+	      	return true;
+	   	else 
+	      	alert("Las contraseñas no coinciden...");
+	      	return false;
+		} 
+	</script>
 {% endblock %}

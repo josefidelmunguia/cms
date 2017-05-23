@@ -11,6 +11,7 @@
     	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     	<link rel="shortcut icon" href="{% static 'img/logo.png' %}" type="image/x-icon">
     	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css">
+    	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
     	<style type="text/css">
     		body{
@@ -49,7 +50,12 @@
 
 	<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base"> 	
 		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-			{% include "menu.html" %}
+			
+		  	<header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+		  		{% include "menu.html" %}
+				{% block header %} {% endblock %} 
+  			</header>
+  				{% include "menu_movil.html" %}
 			{% block contenido %} {% endblock %}
 		</div>
 

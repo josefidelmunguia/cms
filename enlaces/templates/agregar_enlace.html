@@ -7,18 +7,18 @@
 			<div class="mdl-cell mdl-cell--3-col">
 				<form autocomplete="on"> 
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
-						<input class="mdl-textfield__input" type="text" id="sample3" required="required" autofocus/> 
+						<input class="mdl-textfield__input" type="text" name="titulo" id="id_titulo" maxlength="35" required="required" autofocus/> 
 						<label class="mdl-textfield__label" for="sample3">Titulo</label>
 					</div>
 					<br>
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text" id="sample3" required="required"/>  
+						<input class="mdl-textfield__input" type="text" name="enlace_personalizado" id="id_enlace_personalizado" required="required"/>  
 						<label class="mdl-textfield__label" for="sample3">Enlace personalizado</label>
 					</div>
 					<br>
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
 						<label class="mdl-textfield__label" for="sample3">Página</label>
-						<select class="mdl-textfield__input" required="required">
+						<select class="mdl-textfield__input" name="pagina" id="id_pagina" required="required">
 							<option value="" selected="selected"></option>
 						{% for p in pagina %}
 							<option value="{{p.id}}">{{p.titulo}}</option>
@@ -28,7 +28,7 @@
 					<br>
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
 						<label class="mdl-textfield__label" for="sample3">Categoria de Producto</label>
-						<select class="mdl-textfield__input" required="required">
+						<select class="mdl-textfield__input" name="categoria_producto" id="id_categoria_producto" required="required">
 							<option value="" selected="selected"></option>
 						{% for c in categoria_producto %}
 							<option value="{{c.id}}">{{c.nombre}}</option>
@@ -38,7 +38,7 @@
 					<br>
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
 						<label class="mdl-textfield__label" for="sample3">Categoria de entrada</label>
-						<select class="mdl-textfield__input" required="required">
+						<select class="mdl-textfield__input" name="categoria_entrada" id="id_categoria_entrada" required="required">
 							<option value="" selected="selected"></option>
 						{% for e in categoria_entrada %}
 							<option value="{{e.id}}">{{e.nombre}}</option>
@@ -48,7 +48,7 @@
 					<br>
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
 						<label class="mdl-textfield__label" for="sample3">Menú</label>
-						<select class="mdl-textfield__input" required="required">
+						<select class="mdl-textfield__input" name="menu" id="id_menu" required="required">
 							<option value="" selected="selected"></option>
 						{% for m in menu %}
 							<option value="{{m.id}}">{{m.nombre}}</option>

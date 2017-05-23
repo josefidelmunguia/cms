@@ -1,0 +1,26 @@
+	{% if user.is_authenticated %}
+	<div class="mdl-layout__drawer">
+		
+    	<span class="mdl-layout-title">Menú</span>
+        <nav class="mdl-navigation" >
+          	<a class="mdl-navigation__link" href="{% url 'index' %}"><i class="material-icons" role="presentation">home</i> Inicio</a>
+          	<a class="mdl-navigation__link" href=""><i class="material-icons" role="presentation">people</i> Clientes</a>
+		 	      <a class="mdl-navigation__link" href=""><i class="material-icons" role="presentation">people</i> Empleados</a>
+    	  	  <a class="mdl-navigation__link" href=""><i class="material-icons" role="presentation">local_mall</i> Productos</a>
+	          <a class="mdl-navigation__link" href=""><i class="material-icons" role="presentation">email</i> Acerca de</a>
+        </nav>
+  	</div>
+  	{% endif %}
+  	
+  	<div >
+		<button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon mdl-layout--small-screen-only">
+		  <i class="material-icons">more_vert</i>
+		</button>
+		<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+		  <li class="mdl-menu__item">Inicio</li>
+		  <li class="mdl-menu__item">Clientes</li>
+		  <li class="mdl-menu__item">Empleados</li>
+		  <li class="mdl-menu__item">Productos</li>
+		  <li class="mdl-menu__item">Acerca de</li>
+		</ul>
+  	</div>

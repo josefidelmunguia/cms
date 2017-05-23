@@ -1,64 +1,53 @@
 {% extends "base.html" %} 
-
 {% load static staticfiles %}
-
+{% block header%}
+	<div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+      <a href="#activos" class="mdl-layout__tab is-active">Overview</a>
+      <a href="#features" class="mdl-layout__tab">Features</a>
+      <a href="{% url 'agregar-multimedia' %}" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="add">
+        <i class="material-icons" role="presentation">add</i>
+        <span class="visuallyhidden">Add</span>
+      </a>
+    </div>
+{% endblock %}
 {% block contenido %}
-  <header class="mdl-layout--large-screen-only mdl-color--grey-100 ">
-    <a href="/multimedia/agregar_multimedia" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent mdl-boton " id="add">
-      <i class="material-icons" role="presentation">add</i>
-      <span class="visuallyhidden">Add</span>
-    </a>
-  </header>
       
-  <style type="text/css">
-  .mdl-boton{
-    margin-left: 90%;
-    margin-top:-1px; 
-  }
-  </style>
-
 	<main class="mdl-layout__content mdl-color--grey-100">
-	<div class="mdl-grid demo-content">
-		<div class="mdl-layout-spacer"></div>
-		<div class="mdl-cell mdl-cell--8-col">
-			<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
-				<thead>
-			    	<tr>
-				    	<th class="mdl-data-table__cell--non-numeric">Titulo</th>
-				    	<th>Tipo</th>
-					    <th>Leyenda</th>
-					    <th>Texto Alternativo</th>
-					    <th>Fecha Publicación</th>
-					    <th>Archivo</th>
-			    	</tr>
-			  	</thead>
-			  	<tbody>				    
-				    {% for m in multimedia %}
-				    <tr>
-						<td class="mdl-data-table__cell--non-numeric">{{m.titulo}}</td>
-						<td class="mdl-data-table__cell--non-numeric">{{m.tipo}}</td>
-						<td class="mdl-data-table__cell--non-numeric">{{m.leyenda}}</td>
-						<td class="mdl-data-table__cell--non-numeric">{{m.texto_alternativo}}</td>
-						<td class="mdl-data-table__cell--non-numeric">{{m.fecha_publicacion |date:"d-m-Y"}}</td>
-						<td class="mdl-data-table__cell--non-numeric"><img src="{{ m.archivo.url }}" alt="{{ m.titulo }}" width="120" /></td>
-					</tr>
-					{% endfor %}	   
-			  	</tbody>
-			</table>
-		</div>	
-		<div class="mdl-layout-spacer"></div>
+		<div class="mdl-layout__tab-panel is-active" id="activos">
+			<div class="mdl-grid demo-content">
+				<div class="mdl-cell mdl-cell--12-col">
+					<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-full-width">
+						<thead>
+					    	<tr>
+						    	<th class="mdl-data-table__cell--non-numeric">Titulo</th>
+						    	<th>Tipo</th>
+							    <th>Leyenda</th>
+							    <th>Texto Alternativo</th>
+							    <th>Fecha Publicación</th>
+							    <th>Archivo</th>
+					    	</tr>
+					  	</thead>
+					  	<tbody>				    
+						    {% for m in multimedia %}
+						    <tr>
+								<td class="mdl-data-table__cell--non-numeric">{{m.titulo}}</td>
+								<td>{{m.tipo}}</td>
+								<td>{{m.leyenda}}</td>
+								<td>{{m.texto_alternativo}}</td>
+								<td>{{m.fecha_publicacion |date:"d-m-Y"}}</td>
+								<td><img src="{{ m.archivo.url }}" alt="{{ m.titulo }}" width="120" /></td>
+							</tr>
+							{% endfor %}	   
+					  	</tbody>
+					</table>
+				</div>	
+			</div>
 		</div>
 	</main>
 	<footer class="mdl-color--grey-100 mdl-layout--small-screen-only">
-		<a href="/multimedia/agregar_multimedia" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent mdl-bot" id="add">
+		<a href="{% url 'agregar-multimedia' %}" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent mdl-bot" id="add">
             <i class="material-icons" role="presentation">add</i>
             <span class="visuallyhidden">Add</span>
       	</a>
 	</footer>
-	<style type="text/css">
-		.mdl-bot{
-			margin-left: 85%;
-			margin-bottom:10px;
-		}
-	</style>
 {% endblock %}

@@ -5,7 +5,7 @@ from .models import Multimedia
 
 @login_required(login_url='/usuarios/login/')
 def menu_multimedia(request):
-	page_title = "Menú Multimedia"
+	page_title = "MULTIMEDIAS"
 	user = request.user
 	multimedia = Multimedia.objects.all()
 	template ="menu_multimedia.html"
@@ -13,7 +13,7 @@ def menu_multimedia(request):
 
 @login_required(login_url='/usuarios/login/')
 def agregar_multimedia(request):
-	page_title = "Agregar Multimedia"
+	page_title = "AGREGAR MULTIMEDIA"
 	user = request.user
 	template ="agregar_multimedia.html"
 	return render(request,template, locals())

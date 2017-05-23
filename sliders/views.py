@@ -5,7 +5,7 @@ from .models import Categoria,Slider
 
 @login_required(login_url='/usuarios/login/')
 def agregar_slider(request):
-    page_title = "Agregar Slider"
+    page_title = "AGREGAR SLIDER"
     user = request.user
     categoria = Categoria.objects.all()
     template ="agregar_slider.html" 
@@ -13,14 +13,14 @@ def agregar_slider(request):
 
 @login_required(login_url='/usuarios/login/')
 def agregar_cat_slider(request):
-    page_title = "Agregar Categoria"
+    page_title = "AGREGAR CATEGORIA"
     user = request.user
     template ="agregar_cat_slider.html" 
     return render(request,template, locals())
 
 @login_required(login_url='/usuarios/login/')
 def menu_sliders(request):
-    page_title = "Menú Sliders"
+    page_title = "SLIDERS"
     user = request.user
     slider = Slider.objects.all()
     template ="menu_sliders.html" 

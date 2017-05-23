@@ -5,7 +5,7 @@ from .models import Ajuste
 
 @login_required(login_url='/usuarios/login/')
 def menu_ajustes(request):
-    page_title = "Menú Ajustes"
+    page_title = "AJUSTES"
     user = request.user
     ajuste = Ajuste.objects.all()
     template ="menu_ajustes.html" 
@@ -13,7 +13,7 @@ def menu_ajustes(request):
 
 @login_required(login_url='/usuarios/login/')
 def ajustes(request):
-    page_title = "Agregar Ajustes"
+    page_title = "AGREGAR AJUSTE"
     user = request.user
     template ="ajustes.html" 
     return render(request,template, locals())

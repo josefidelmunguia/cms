@@ -9,18 +9,18 @@
 			<div class="mdl-cell mdl-cell--3-col">
 				<form autocomplete="on"> 
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text" id="sample3" required="required" autofocus/>
+						<input class="mdl-textfield__input" type="text" name="usuario" id="id_usuario" required="required" autofocus/>
 						<label class="mdl-textfield__label" for="sample3">Nombre de usuario</label>
 					</div>
 					<br>	
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
-						<input class="mdl-textfield__input" type="text" id="sample3" required="required"/> 
+						<input class="mdl-textfield__input" type="text" name="titulo" id="id_titulo" maxlength="45" required="required"/> 
 						<label class="mdl-textfield__label" for="sample3">Titulo</label>
 					</div>
 					<br>
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
 						<label class="mdl-textfield__label" for="sample3">Categoria de la entrada</label>
-						<select class="mdl-textfield__input" required="required">
+						<select class="mdl-textfield__input" name="etiqueta" id="id_etiqueta" required="required">
 							<option value="" selected="selected"></option>
 						{% for c in categoria_entrada %}
 							<option value="{{c.id}}">{{c.nombre}}</option>
@@ -30,7 +30,7 @@
 					<br>
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
 						<label class="mdl-textfield__label" for="sample3">Etiqueta de la entrada</label>
-						<select class="mdl-textfield__input" required="required">
+						<select class="mdl-textfield__input" name="entrada" id="id_etiqueta" required="required">
 							<option value="" selected="selected"></option>
 						{% for e in etiqueta_entrada %}
 							<option value="{{e.id}}">{{e.nombre}}</option>
@@ -40,7 +40,7 @@
 					<br>
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
 						<label class="mdl-textfield__label" for="sample3">Comentario de la entrada</label>
-						<select class="mdl-textfield__input" required="required">
+						<select class="mdl-textfield__input" name="comentario" id="id_comentario" required="required">
 							<option value="" selected="selected"></option>
 						{% for d in comentario_entrada %}
 							<option value="{{d.id}}">{{d.nombre}}</option>
@@ -49,7 +49,7 @@
 					</div>
 					<br>
 					<div>	
-						<input type="file" accept="image/*" id="uploader" required="required">
+						<input type="file" name="imagen" accept="image/*" id="uploader" required="required">
 						<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 					    <script src="{% static 'js/file-uploader.js' %}"></script>
 					    <script type="text/javascript">
@@ -59,7 +59,7 @@
 					</div>
 					<br>
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
-						<input class="mdl-textfield__input" id="sample3" required="required" type="date"/> 
+						<input class="mdl-textfield__input" name="fecha_publicacion" id="id_fecha_publicacion" required="required" type="date"/> 
 						<label class="mdl-textfield__label" for="sample3">Fecha Publicación</label>	
 					</div>
 					<br>

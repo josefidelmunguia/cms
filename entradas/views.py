@@ -5,27 +5,27 @@ from .models import Categoria_Entrada,Comentario_Entrada,Etiqueta_Entrada,Entrad
 
 @login_required(login_url='/usuarios/login/')
 def agregar_categoria(request):
-    page_title = "Agregar Categoria"
+    page_title = "AGREGAR CATEGORIA"
     user = request.user
     template ="agregar_cat_entrada.html" 
     return render(request,template, locals())
 
 @login_required(login_url='/usuarios/login/')
 def agregar_etiqueta(request):
-    page_title = "Agregar Etiqueta"
+    page_title = "AGREGAR ETIQUETA"
     user = request.user
     template ="agregar_eti_entrada.html" 
     return render(request,template, locals())
 
 def agregar_comentario(request):
-    page_title = "Agregar Comentario"
+    page_title = "AGREGAR COMENTARIO"
     user = request.user
     template ="agregar_com_entrada.html" 
     return render(request,template, locals())
 
 @login_required(login_url='/usuarios/login/')
 def agregar_entrada(request):
-    page_title = "Agregar Entrada"
+    page_title = "AGREGAR ENTRADA"
     user = request.user
     etiqueta_entrada = Etiqueta_Entrada.objects.all()
     categoria_entrada = Categoria_Entrada.objects.all()
@@ -35,7 +35,7 @@ def agregar_entrada(request):
 
 @login_required(login_url='/usuarios/login/')
 def menu_entradas(request):
-    page_title = "Menú Entradas"
+    page_title = "ENTRADAS"
     user = request.user
     entrada = Entrada.objects.all()
     template ="menu_entradas.html" 

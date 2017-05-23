@@ -1,57 +1,45 @@
 {% extends "base.html" %} 
-
 {% load static staticfiles %}
-	
+{% block header%}
+	<div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+      <a href="#activos" class="mdl-layout__tab is-active">Overview</a>
+      <a href="#features" class="mdl-layout__tab">Features</a>
+      <a href="{% url 'ajustes' %}" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="add">
+        <i class="material-icons" role="presentation">add</i>
+        <span class="visuallyhidden">Add</span>
+      </a>
+    </div>
+{% endblock %}
 {% block contenido %}
-  <header class="mdl-layout--large-screen-only mdl-color--grey-100 ">
-    <a href="/ajustes/agregar_ajuste" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent mdl-boton " id="add">
-      <i class="material-icons" role="presentation">add</i>
-      <span class="visuallyhidden">Add</span>
-    </a>
-  </header>
-      
-  <style type="text/css">
-  .mdl-boton{
-    margin-left: 90%;
-    margin-top:-1px; 
-  }
-  </style>
-
+ 
 	<main class="mdl-layout__content mdl-color--grey-100 ">
-		<div class="mdl-grid demo-content">
-			<div class="mdl-layout-spacer"></div>
-			<div class="mdl-cell mdl-cell--6-col">
-				<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
-					<thead>
-				    	<tr>
-					    	<th class="mdl-data-table__cell--non-numeric">Titulo del sitio</th>
-						    <th>Descripción Corta</th>
-				    	</tr>
-				  	</thead>
-				  	<tbody>				    
-					    {% for a in ajuste %}
-					    <tr>
-							<td class="mdl-data-table__cell--non-numeric">{{a.titulo_sitio}}</td>
-							<td class="mdl-data-table__cell--non-numeric">{{a.descripcion_corta}}</td>
-						</tr>
-						{% endfor %}	   
-				  	</tbody>
-				</table>
-			</div>	
-			<div class="mdl-layout-spacer"></div>
-		</div>
-			
+		<div class="mdl-layout__tab-panel is-active" id="activos">
+			<div class="mdl-grid demo-content">
+				<div class="mdl-cell mdl-cell--12-col">
+					<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-full-width">
+						<thead>
+					    	<tr>
+						    	<th class="mdl-data-table__cell--non-numeric">Titulo del sitio</th>
+							    <th>Descripción Corta</th>
+					    	</tr>
+					  	</thead>
+					  	<tbody>				    
+						    {% for a in ajuste %}
+						    <tr>
+								<td class="mdl-data-table__cell--non-numeric">{{a.titulo_sitio}}</td>
+								<td>{{a.descripcion_corta}}</td>
+							</tr>
+							{% endfor %}	   
+					  	</tbody>
+					</table>
+				</div>	
+			</div>
+		<div class="mdl-layout__tab-panel is-active" id="activos">		
 	</main>
 	<footer class="mdl-color--grey-100 mdl-layout--small-screen-only">
-		<a href="/ajustes/agregar_ajuste" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent mdl-bot" id="add">
+		<a href="{% url 'ajustes' %}" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent mdl-bot" id="add">
             <i class="material-icons" role="presentation">add</i>
             <span class="visuallyhidden">Add</span>
       	</a>
 	</footer>
-	<style type="text/css">
-		.mdl-bot{
-			margin-left: 85%;
-			margin-bottom:10px;
-		}
-	</style>
 {% endblock %}
