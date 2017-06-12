@@ -28,10 +28,11 @@ class Entrada(models.Model):
 	titulo = models.CharField(max_length=45)
 	categoria = models.ForeignKey(Categoria_Entrada)
 	etiqueta = models.ForeignKey(Etiqueta_Entrada)
-	comentario = models.ForeignKey(Comentario_Entrada)
+	comentario = models.ForeignKey(Comentario_Entrada,blank=True,null=True)
+	imagen = models.ImageField(upload_to='img/entradas',blank=True,null=True)
 	fecha_creacion = models.DateField(auto_now_add=True)
 	fecha_publicacion = models.DateField()
-	imagen = models.ImageField(upload_to='img/entradas',)
+	
 
 	def __unicode__(self):
 		return unicode(self.titulo)

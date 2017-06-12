@@ -1,0 +1,48 @@
+{% extends "base.html" %} 
+
+{% block contenido %}
+	<main class="mdl-layout__content mdl-color--grey-100">
+		<div class="mdl-grid demo-content">
+			<div class="mdl-layout-spacer"></div>
+			<div class="mdl-cell mdl-cell--3-col">
+				<form action="" method="post" id="login" role="form"> {% csrf_token %}
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<input class="mdl-textfield__input" type="hidden" name="usuario" id="id_usuario" value="{{usuario.id}}" required="required" autofocus/>
+						<input class="mdl-textfield__input" type="text" name="usuario_nombre" id="id_usuario" value="{{usuario.usuario.username}}" required="required" readonly="readonly" autofocus/>
+						<label class="mdl-textfield__label" for="sample3">Nombre de usuario</label>
+					</div>
+
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
+						<input  class="mdl-textfield__input" type="text" name="first_name" id="id_first_name" maxlength="30" required="required"/>
+						<label class="mdl-textfield__label" for="sample3" >Nombre</label>
+					</div>
+
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
+						<input  class="mdl-textfield__input" type="text" name="last_name" id="id_last_name"  maxlength="30" required="required"/>
+						<label class="mdl-textfield__label" for="sample3" >Apellidos</label>
+					</div>
+
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
+						<label class="mdl-textfield__label" for="sample3" >Perfil</label>
+						<select class="mdl-textfield__input" name="perfil" id="id_perfil" required="required">
+							<option value="" selected="selected" ></option>
+						{% for p in perfil %}
+							<option value="{{p.id}}">{{p.nombre}}</option>
+						{% endfor %}
+						</select>
+					</div>
+				
+					<div class="signin button "> 
+						<a href="{% url 'index' %}" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+						  Cancelar
+						</a>
+						<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+						  Guardar
+						</button> 
+					</div>
+				</form>
+			</div>
+			<div class="mdl-layout-spacer"></div>
+		</div>
+	</main>
+{% endblock %} 

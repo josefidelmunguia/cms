@@ -5,7 +5,7 @@
 		<div class="mdl-grid demo-content">
 			<div class="mdl-layout-spacer"></div>
 			<div class="mdl-cell mdl-cell--3-col">
-				<form autocomplete="on"> 
+				<form action="" method="post" role="form"> {% csrf_token %}	 
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
 						<input class="mdl-textfield__input" type="text" name="titulo" id="id_titulo" maxlength="35" required="required" autofocus/> 
 						<label class="mdl-textfield__label" for="sample3">Titulo</label>
@@ -56,7 +56,10 @@
 						</select>
 					</div>
 					<br>
-					<div class="signin button "> 
+					<div class="signin button ">
+						<a href="{% url 'menu-enlaces' %}" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+						  Cancelar
+						</a>
 						<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
 						  Agregar
 						</button> 

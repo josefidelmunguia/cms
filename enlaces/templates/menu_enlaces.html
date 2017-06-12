@@ -2,8 +2,8 @@
 {% load static staticfiles %}
 {% block header%}
 	<div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
-      <a href="#activos" class="mdl-layout__tab is-active">Overview</a>
-      <a href="#features" class="mdl-layout__tab">Features</a>
+      <a href="#activos" class="mdl-layout__tab is-active">2017</a>
+      <a href="#features" class="mdl-layout__tab">2018</a>
       <a href="{% url 'agregar-enlace' %}" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="add">
         <i class="material-icons" role="presentation">add</i>
         <span class="visuallyhidden">Add</span>
@@ -32,6 +32,7 @@
 						    <tr>
 								<td class="mdl-data-table__cell--non-numeric">{{e.titulo}}</td>
 								<td>{{e.enlace_personalizado}}</td>
+								<td>{{e.pagina}}</td>
 								<td>{{e.categoria_producto}}</td>
 								<td>{{e.categoria_entrada}}</td>
 								<td>{{e.menu}}</td>

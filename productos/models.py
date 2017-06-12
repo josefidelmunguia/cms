@@ -24,9 +24,9 @@ class Producto(models.Model):
 	stock = models.CharField(max_length=20)
 	precio = models.DecimalField(max_digits=7,decimal_places=2,blank=True,null=True)
 	slugs = models.SlugField(max_length=50,allow_unicode=True,blank=True,null=True)
+	imagen = models.ImageField(upload_to='img/productos',)
 	fecha_creacion = models.DateField(auto_now_add=True)
 	fecha_publicacion = models.DateField()
-	imagen = models.ImageField(upload_to='img/productos',)
-
+	
 	def __unicode__(self):
 		return unicode(self.nombre)

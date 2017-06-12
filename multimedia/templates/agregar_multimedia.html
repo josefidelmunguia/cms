@@ -7,48 +7,39 @@
 		<div class="mdl-grid demo-content">
 			<div class="mdl-layout-spacer"></div>
 			<div class="mdl-cell mdl-cell--3-col">
-				<form autocomplete="on"> 
+				<form action="" method="post" role="form" enctype="multipart/form-data"> {% csrf_token %}	
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text" name="usuario" id="id_usuario" required="required" autofocus/>
+						<input class="mdl-textfield__input" type="hidden" name="usuario" id="id_usuario" value="{{usuario.id}}" required="required" autofocus/>
+						<input class="mdl-textfield__input" type="text" name="usuario_nombre" id="id_usuario" value="{{usuario.usuario.username}}" required="required" readonly="readonly" autofocus/>
 						<label class="mdl-textfield__label" for="sample3">Nombre de usuario</label>
-					</div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-					<br>	
+					</div>
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 						<input class="mdl-textfield__input" type="text" name="titulo" id="id_titulo" maxlength="30" required="required"/>  
 						<label class="mdl-textfield__label" for="sample3">Titulo de la multimedia</label>
 					</div>
-					<br>
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
 						<input class="mdl-textfield__input" type="text" name="tipo" id="id_tipo" maxlength="10" required="required"/> 
 						<label class="mdl-textfield__label" for="sample3">Tipo</label>
-					</div>
-					<br>
+					</div>					<br>
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 						<textarea class="mdl-textfield__input" type="text" name="leyenda" id="id_leyenda" maxlength="50" required="required"></textarea> 
 						<label class="mdl-textfield__label" for="sample3">Leyenda</label>
 					</div>
-					<br>
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
 						<textarea class="mdl-textfield__input" type="text" name="texto_alternativo" id="id_texto_alternativo" maxlength="40" required="required"></textarea>
 						<label class="mdl-textfield__label" for="sample3">Texto alternativo</label>
 					</div>
-					<br>
 					<div>	
 						<input type="file" accept="image/*" name="archivo" id="uploader" required="required">
-						<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-					    <script src="{% static 'js/file-uploader.js' %}"></script>
-					    <script type="text/javascript">
-					        $('#uploader').fileUploader({activeColor: 'blue', baseColor: '#ccc'});
-					    </script>
-					    <link rel="stylesheet" href="{% static 'css/file-uploader.css' %}">
 					</div>
-					<br>
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
 						<input class="mdl-textfield__input" name="fecha_publicacion" id="id_fecha_publicacion" required="required" type="date"/>
 						<label class="mdl-textfield__label" for="sample3">Fecha Publicación</label> 
 					</div>
-					<br>
 					<div class="signin button "> 
+						<a href="{% url 'menu-multimedia' %}" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+						  Cancelar
+						</a>
 						<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
 						  Agregar
 						</button> 
@@ -58,4 +49,10 @@
 			<div class="mdl-layout-spacer"></div>
 		</div>
 	</main>
+{% endblock %}
+
+{% block js %} 
+	<script type="text/javascript">
+		$('#uploader').fileUploader({activeColor: 'blue', baseColor: '#ccc'});
+	</script>
 {% endblock %}

@@ -2,8 +2,8 @@
 {% load static staticfiles %}
 {% block header%}
 	<div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
-	  <a href="#activos" class="mdl-layout__tab is-active">Overview</a>
-      <a href="#features" class="mdl-layout__tab">Features</a>
+	  <a href="#activos" class="mdl-layout__tab is-active">2017</a>
+      <a href="#features" class="mdl-layout__tab">2018</a>
       <a href="{% url 'agregar-slider' %}" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="add">
         <i class="material-icons" role="presentation">add</i>
         <span class="visuallyhidden">Add</span>
@@ -11,7 +11,6 @@
     </div>
 {% endblock %}
 {% block contenido %}
-  
 	<main class="mdl-layout__content mdl-color--grey-100">
 		<div class="mdl-layout__tab-panel is-active" id="activos">
 			<div class="mdl-grid demo-content">

@@ -13,10 +13,10 @@ class Menu(models.Model):
 class Enlace(models.Model):
 	titulo = models.CharField(max_length=35)
 	enlace_personalizado = models.CharField(max_length=35)
+	pagina = models.ForeignKey(Pagina)
 	categoria_producto = models.ForeignKey(Categoria_Producto)
 	categoria_entrada = models.ForeignKey(Categoria_Entrada)
 	menu = models.ForeignKey(Menu)
-	pagina = models.ForeignKey(Pagina)
 	
 	def __unicode__(self):
 		return unicode(self.titulo)

@@ -7,17 +7,16 @@
 		<div class="mdl-grid demo-content">
 			<div class="mdl-layout-spacer"></div>
 			<div class="mdl-cell mdl-cell--3-col">
-				<form autocomplete="on"> 
+				<form action="" method="post" role="form" enctype="multipart/form-data"> {% csrf_token %}
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text" name="usuario" id="id_usuario" required="required" autofocus/>
+						<input class="mdl-textfield__input" type="hidden" name="usuario" id="id_usuario" value="{{usuario.id}}" required="required" autofocus/>
+						<input class="mdl-textfield__input" type="text" name="usuario_nombre" id="id_usuario" value="{{usuario.usuario.username}}" required="required" readonly="readonly" autofocus/>
 						<label class="mdl-textfield__label" for="sample3">Nombre de usuario</label>
 					</div>
-					<br>	
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
 						<input class="mdl-textfield__input" type="text" name="nombre" id="id_nombre" maxlength="40" required="required"/> 
 						<label class="mdl-textfield__label" for="sample3" >Nombre del slider</label>
 					</div>
-					<br>
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
 						<label class="mdl-textfield__label" for="sample3" >Categoria</label>
 						<select class="mdl-textfield__input" name="categoria" id="id_categoria" required="required" >
@@ -27,28 +26,21 @@
 						{% endfor %}
 						</select>
 					</div>
-					<br>
 					<div>	
 						<input type="file" accept="image/*" name="imagen" id="uploader" required="required">
-						<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-					    <script src="{% static 'js/file-uploader.js' %}"></script>
-					    <script type="text/javascript">
-					        $('#uploader').fileUploader({activeColor: 'blue', baseColor: '#ccc'});
-					    </script>
-					    <link rel="stylesheet" href="{% static 'css/file-uploader.css' %}">
 					</div>
-					<br>
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
 						<input class="mdl-textfield__input" name="fecha_inicio" id="id_fecha_inicio" required="required" type="date"/>
 						<label class="mdl-textfield__label" for="sample3" >Fecha Inicio</label>
 					</div>
-					<br>
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
 						<input class="mdl-textfield__input" name="fecha_fin" id="id_fecha_fin" required="required" type="date" min="2017-02-09"/>
 						<label class="mdl-textfield__label" for="sample3" >Fecha Fin</label>
 					</div>
-					<br>
 					<div class="signin button "> 
+						<a href="{% url 'menu-sliders' %}" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+						  Cancelar
+						</a>
 						<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
 						  Agregar
 						</button> 
@@ -58,4 +50,10 @@
 			<div class="mdl-layout-spacer"></div>
 		</div>
 	</main>
+{% endblock %}
+
+{% block js %} 
+	<script type="text/javascript">
+		$('#uploader').fileUploader({activeColor: 'blue', baseColor: '#ccc'});
+	</script>
 {% endblock %}

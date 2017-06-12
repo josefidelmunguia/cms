@@ -1,5 +1,5 @@
 from django.conf.urls import url,include
-from multimedia.views import agregar_multimedia,menu_multimedia
+from multimedia.views import menu_multimedia,agregar_multimedia
 
 urlpatterns = [
     url(r'^$',menu_multimedia, name="menu-multimedia"),
